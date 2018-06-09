@@ -2,11 +2,11 @@
 
 CXX = clang++
 
-CXXFLAGS = -Wall -Werror -Wextra -I include -I ~/.brew/include
+CXXFLAGS = -Wall -Werror -Wextra -I include -I ~/.brew/include -g
 
 NAME = ft_gkrellm
 
-SRC = main.cpp Computer.cpp modules/IMonitorModule.cpp modules/CPUModule.cpp
+SRC = main.cpp Computer.cpp modules/IMonitorModule.cpp modules/IMonitorDisplay.cpp modules/CPUModule.cpp modules/SDLRenderer.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

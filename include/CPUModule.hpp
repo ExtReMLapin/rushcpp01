@@ -7,10 +7,11 @@ class CPUModule : public IMonitorModule
 {
 	public:
 		CPUModule();
-		virtual ~CPUModule();	
+		~CPUModule();	
 		void							update(void);
 		std::vector<float> const		&getNumbers(void) const;
-		
+		std::string getFreq(void) const;
+		size_t getCoreCount(void) const;
 
 	private:
 		CPUModule(CPUModule const &src);
@@ -20,4 +21,5 @@ class CPUModule : public IMonitorModule
 		std::vector<float>			_coresnumbers; // now perentage usage of each core
 		uint64_t _ncycles;
 		double _frequency;
+		double _maxfreq;
 };

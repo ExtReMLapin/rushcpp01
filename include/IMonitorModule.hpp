@@ -10,9 +10,6 @@ public:
 	virtual ~IMonitorModule();
 
 	virtual void							update(void) = 0;
-	virtual std::string const				&getModuleName(void) const = 0;
-	virtual std::vector<std::string> const	&getStrings(void) const = 0;
-	virtual std::vector<float> const		&getNumbers(void) const = 0;
 	
 private:
 	IMonitorModule(IMonitorModule const &src);

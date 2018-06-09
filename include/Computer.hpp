@@ -1,24 +1,21 @@
 #pragma once
-#include <SDL2/SDL.h>
-int		key_press(SDL_Event *e);
+#include <CPUModule.hpp>
+#include <IMonitorDisplay.hpp>
 
 class Computer
 {
 	public:
-		Computer(bool isGUI);
 		~Computer();
-		SDL_Window *window;
-		SDL_Surface *surface;
-		SDL_Renderer *renderer;
 		bool isGUI(void) const;
+		void setGUI(bool gui);
 		Computer (const Computer&);
 		Computer &operator=(const Computer&);
 		Computer();
-		void setGUI(bool gui);
+		IMonitorDisplay *renderer;
+		CPUModule cpu;	
 	private:
-		
-
 		bool _isGUI;
+		
 
 	
 };
