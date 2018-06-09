@@ -9,14 +9,15 @@ class CPUModule : public IMonitorModule
 		CPUModule();
 		virtual ~CPUModule();	
 		void							update(void);
-		std::vector<std::string> const	&getStrings(void) const;
-		std::vector<float> const			&getNumbers(void) const;
-		std::string const				&getModuleName(void) const;
+		std::vector<float> const		&getNumbers(void) const;
 		
 
 	private:
 		CPUModule(CPUModule const &src);
 		CPUModule	&operator=(CPUModule const &rhs);
-		std::vector<float>			_numbers;
-	
+		std::vector<float>			_numbers; // history of total cpu usage
+		size_t		_ncores;
+		std::vector<float>			_coresnumbers; // now perentage usage of each core
+		uint64_t _ncycles;
+		double _frequency;
 };

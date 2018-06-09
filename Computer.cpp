@@ -36,13 +36,16 @@ bool Computer::isGUI(void) const
 {
 	return (_isGUI);
 }
+
+void Computer::setGUI(bool gui)
+{
+	this->_isGUI = gui;
+}
   
+Computer::Computer()
+{
 
-
-
-
-
-
+}
 
 
 
@@ -53,12 +56,13 @@ Computer::~Computer()
 
 Computer::Computer (const Computer& src)
 {
+	*this = src;
 	(void)src;
 }
 
 Computer &Computer::operator=(const Computer& src)
 {
-	(void)src;
+	this->_isGUI = src._isGUI; 
 	return (*this);
 }
 

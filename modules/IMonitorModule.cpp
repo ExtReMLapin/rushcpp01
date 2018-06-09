@@ -17,8 +17,8 @@ IMonitorModule::IMonitorModule(IMonitorModule const &src)
 }
 
 
-IMonitorModule				&operator=(IMonitorModule const &rhs)
+IMonitorModule		&IMonitorModule::operator=(IMonitorModule const &rhs)
 {
 	(void)rhs;
 	return (*this);
-}
+} 

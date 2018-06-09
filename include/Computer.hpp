@@ -11,11 +11,13 @@ class Computer
 		SDL_Surface *surface;
 		SDL_Renderer *renderer;
 		bool isGUI(void) const;
-
-	private:
-		Computer();
 		Computer (const Computer&);
 		Computer &operator=(const Computer&);
+		Computer();
+		void setGUI(bool gui);
+	private:
+		
+
 		bool _isGUI;
 
 	
