@@ -1,13 +1,15 @@
-#include "Computer.hpp"
+#include <Computer.hpp>
 
 #include <iostream>
+
+
 
 Computer::Computer(bool isGUI) : _isGUI(isGUI)
 {
 	if (_isGUI)
 	{
 		SDL_Init(SDL_INIT_EVERYTHING);
-		window = SDL_CreateWindow(
+		this->window = SDL_CreateWindow(
 		"ft_gkrellm",                  // window title
 		SDL_WINDOWPOS_UNDEFINED,           // initial x position
 		SDL_WINDOWPOS_UNDEFINED,           // initial y position
@@ -17,16 +19,33 @@ Computer::Computer(bool isGUI) : _isGUI(isGUI)
 		);
 		if (window == NULL) {
 			std::cout << "Could not create window:" << SDL_GetError() << std::endl;
-			
 		}
+		this->surface = SDL_GetWindowSurface(this->window);
+		this->renderer = SDL_CreateSoftwareRenderer(this->surface);
+		SDL_SetRenderDrawColor(this->renderer, 0, 0, 0, 255);
 	}
 
-	if (!_isGUI) // like failed sdl thing
+	if (!_isGUI) // like failed sdl, so don't use else
 	{
-		//ncurseinit
-	}
 
+	}
 }
+
+
+bool Computer::isGUI(void) const
+{
+	return (_isGUI);
+}
+  
+
+
+
+
+
+
+
+
+
 Computer::~Computer()
 {
 
